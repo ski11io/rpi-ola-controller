@@ -4,101 +4,125 @@
 # Order can be linear or random
 #
 # Address Overview: (1 - 4) LED Fixture
-# LED Fixture: dimmer, r, g, b
+# LED Fixture: 
+#	spot: mode, r, g, b, speed
+#	bar1: r, g, b, dimm, strobo
+#	bar2: r, g, b, dimm, strobo
 
 name: Demo Lighting Setup
 universe: 1
+#frame_duration: 40
 frame_duration: 40
 # scene numbering starts with 1
 start_scene: 2
 scenes:
 - name: Blackout
   # KEY_TAB
-  trigger_keys: [11, 15]
+  trigger_keys: [11, 15, 114]
   repeat: no
   order: linear
   steps:
   - fade: 0
     hold: 0
-    values: [0, 0, 0, 0]
+    values: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 - name: White
   # KEY_KPSLASH
-  trigger_keys: [2, 98]
+  trigger_keys: [2, 98, 113]
   repeat: no
   order: linear
   steps:
   - fade: 0
     hold: 0
-    values: [255, 255, 255, 50]
+    values: [
+0,255,255,255,0,
+255,255,255,255,0,
+255,255,255,255,0 
+]
 - name: Fade Red
   # KEY_KP1
-  trigger_keys: [3, 79]
+  trigger_keys: [3, 79, 165]
   repeat: no
   order: linear
   steps:
-  - fade: 2000
-    hold: 0
-    values: [255, 255, 0, 0]
+  - fade: 5000
+    hold: 2000
+    values: [
+0,255,0,0,0,
+255,0,0,255,0,
+255,0,0,255,0 
+]
 - name: Fade Green
   # KEY_KP2
-  trigger_keys: [4, 80]
+  trigger_keys: [4, 80, 166]
   repeat: no
   order: linear
   steps:
   - fade: 2000
     hold: 0
-    values: [255, 0, 255, 0]
+    values: [
+0,0,255,0,0,
+0,255,0,255,0,
+0,255,0,255,0 
+]
 - name: Fade Blue
   # KEY_KP3
-  trigger_keys: [5, 81]
+  trigger_keys: [5, 81, 164]
   repeat: no
   order: linear
   steps:
   - fade: 2000
     hold: 0
-    values: [255, 0, 0, 255]
+    values: [
+0,0,0,255,0,
+0,0,255,255,0,
+0,0,255,255,0 
+]
 - name: Color Switch
   # KEY_KP9
-  trigger_keys: [6, 73]
+  trigger_keys: [6, 73, 115]
   repeat: yes
   order: random
   steps:
-  - fade: 2000
+  - fade: 5000
     hold: 2000
-    values: [255, 0, 0, 255]
-  - fade: 2000
+    values: [
+0,0,0,50,0,
+0,0,230,80,0,
+0,0,230,80,0 
+]
+  - fade: 5000
     hold: 2000
-    values: [255, 0, 255, 0]
-  - fade: 2000
+    values: [
+0,0,50,0,0,
+0,230,0,80,0,
+0,230,0,80,0 
+]
+  - fade: 5000
     hold: 2000
-    values: [255, 255, 0, 0]
-  - fade: 2000
+    values: [
+0,50,0,0,0,
+230,0,0,80,0,
+230,0,0,80,0 
+]
+  - fade: 5000
     hold: 2000
-    values: [255, 0, 255, 255]
-  - fade: 2000
+    values: [
+0,50,50,0,0,
+0,140,255,80,0,
+0,140,255,80,0 
+]
+  - fade: 5000
     hold: 2000
-    values: [255, 255, 0, 255]
-  - fade: 2000
+    values: [
+0,50,50,0,0,
+180,140,0,80,0,
+180,140,0,80,0 
+]
+  - fade: 5000
     hold: 2000
-    values: [255, 255, 255, 0]
-  - fade: 2000
-    hold: 2000
-    values: [255, 255, 255, 255]
-- name: White Ending
-  # KEY_KPENTER
-  trigger_keys: [7, 96]
-  repeat: no
-  order: linear
-  steps:
-  - fade: 0
-    hold: 300
-    values: [255, 255, 255, 255]
-  - fade: 500
-    hold: 2000
-    values: [0, 255, 255, 255]
-  - fade: 0
-    hold: 0
-    values: [0, 255, 100, 0]
-  - fade: 1000
-    hold: 0
-    values: [180, 255, 100, 0]
+    values: [
+0,160,40,0,0,
+0,210,110,80,0,
+0,210,110,80,0 
+]
+
